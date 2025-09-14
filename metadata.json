@@ -1,0 +1,5 @@
+{
+  "name": "Iraq Events Platform",
+  "description": "A dynamic, responsive web application for discovering and managing events across major Iraqi cities. Features an interactive, auto-scrolling discovery bar with 3D city filters and glowing category filters. Includes comprehensive event creation forms, detailed event views with integrated chat and WhatsApp contact, a review and comment system, and social sharing capabilities. Supports both Arabic (RTL) and English languages.",
+  "requestFramePermissions": []
+}

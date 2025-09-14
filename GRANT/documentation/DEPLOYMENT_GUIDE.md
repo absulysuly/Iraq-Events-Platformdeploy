@@ -1,6 +1,6 @@
-# Eventara - Iraq Events Platform Deployment Package
+# Eventara - Iraq Events Platform Deployment Guide
 
-This package contains the complete source code, configuration, and database schema for the Eventara application. It has been structured for a standard Vite build process and is ready for deployment.
+This document provides a comprehensive guide to setting up, configuring, and deploying the Eventara application.
 
 ## Tech Stack
 
@@ -24,7 +24,7 @@ Before you begin, ensure you have the following installed and configured:
 
 ### 1.1. Install Dependencies
 
-Navigate to the project's root directory and install the required npm packages:
+Navigate to the project's root directory (`GRANT/`) and install the required npm packages:
 
 ```bash
 npm install
@@ -65,13 +65,13 @@ First, link your local project to your remote Supabase project (replace `[PROJEC
 npx supabase link --project-ref [PROJECT_ID]
 ```
 
-Next, push the schema from the `supabase/migrations` directory to your remote database. This will create all the necessary tables, policies, and functions.
+Next, push the schema from the `database/migrations` directory to your remote database. This will create all the necessary tables, policies, and functions.
 
 ```bash
 npx supabase db push
 ```
 
-This command will execute the SQL script located at `supabase/migrations/0000_initial_schema.sql`, setting up your database correctly.
+This command will execute the SQL script located at `database/migrations/0000_initial_schema.sql`, setting up your database correctly.
 
 ---
 
@@ -95,7 +95,7 @@ To build the application for production, run:
 npm run build
 ```
 
-This command creates a `dist` directory with optimized, static assets ready for deployment.
+This command creates a `dist` directory at the project root with optimized, static assets ready for deployment.
 
 ---
 
@@ -109,7 +109,7 @@ You can deploy the contents of the `dist` folder to any static hosting provider 
 
 ---
 
-## 5. Configuring OAuth Providers (Optional)
+## 5. Configuring OAuth Providers (Required for Social Login)
 
 To enable Google and Facebook login, you must configure them in your Supabase project dashboard.
 
@@ -146,19 +146,3 @@ For both Google and Facebook, you will need to get a **Client ID** and a **Clien
 8.  Go to "App Settings" > "Basic".
 9.  You will find your **App ID** (Client ID) and **App Secret** (Client Secret).
 10. Copy these back into the Facebook provider settings in Supabase and save.
-
----
-
-## File Manifest
-
--   `/public`: Static assets.
--   `/src`: All application source code.
-    -   `/src/components`: Reusable React components.
-    -   `/src/services`: API service layers for Supabase and Gemini.
-    -   `/src/types`: TypeScript type definitions.
--   `/supabase/migrations`: Database schema and migration files.
--   `.env.example`: Template for environment variables.
--   `package.json`: Project dependencies and scripts.
--   `vite.config.ts`: Vite build configuration.
--   `tailwind.config.js`: Tailwind CSS configuration.
--   `README.md`: This setup and deployment guide.
